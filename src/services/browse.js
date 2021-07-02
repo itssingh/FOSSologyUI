@@ -20,7 +20,6 @@ import { browseFiles } from "../api/browse";
 
 export function getBrowseData(browseData) {
   return browseFiles(browseData).then((res) => {
-    console.log(res);
     return res;
   });
 }

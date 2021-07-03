@@ -18,7 +18,7 @@
 
 import React, { useState, useEffect } from "react";
 import InputContainer from "../../components/Widgets/Input";
-import { getBrowseData } from "../../services/browse";
+import getBrowseData from "../../services/browse";
 
 const Browse = () => {
   const initialState = {
@@ -65,8 +65,8 @@ const Browse = () => {
                 options={statusOptions}
               />
             </th>
-            <th></th>
-            <th></th>
+            <th />
+            <th />
             <th>
               <InputContainer
                 name="status"
@@ -75,7 +75,7 @@ const Browse = () => {
                 options={assignOptions}
               />
             </th>
-            <th></th>
+            <th />
           </tr>
           <tr className="font-bold text-center font-size-sub-heading">
             <th>Upload Name and Description</th>
@@ -119,7 +119,7 @@ const Browse = () => {
       <nav aria-label="Page navigation">
         <ul className="pagination justify-content-center">
           <li className="page-item disabled">
-            <a className="page-link" href="#" tabIndex="-1">
+            <a className="page-link" href="/" tabIndex="-1">
               Previous
             </a>
           </li>
@@ -128,12 +128,13 @@ const Browse = () => {
               className="page-link"
               onClick={(e) => handleChange(e)}
               name="page"
+              type="button"
             >
               1
             </button>
           </li>
           <li className="page-item">
-            <a className="page-link" href="#">
+            <a className="page-link" href="/">
               Next
             </a>
           </li>

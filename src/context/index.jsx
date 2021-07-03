@@ -17,8 +17,8 @@
 */
 
 import React, { useState } from "react";
-import { setLocalStorage, getLocalStorage } from "../shared/storageHelper";
 import PropTypes from "prop-types";
+import { setLocalStorage, getLocalStorage } from "../shared/storageHelper";
 
 // Initial state
 const initialState = {

@@ -17,7 +17,7 @@
 */
 
 import React from "react";
-import { copyrights } from "../../../data/copyright";
+import copyrights from "../../../data/copyright";
 
 const About = () => {
   return (
@@ -1319,6 +1319,7 @@ const About = () => {
             Copyright Notices
           </div>
           {copyrights.map((copyright, index) => (
+            // eslint-disable-next-line react/no-array-index-key
             <div key={index}>{copyright}</div>
           ))}
         </div>

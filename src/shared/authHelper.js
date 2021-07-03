@@ -30,13 +30,11 @@ export const isAuth = () => {
     if (cookieChecked) {
       if (localStorage.getItem("user")) {
         return true;
-      } else {
-        return false;
       }
+      return false;
     }
-  } else {
-    return false;
   }
+  return false;
 };
 
 export const logout = (next) => {

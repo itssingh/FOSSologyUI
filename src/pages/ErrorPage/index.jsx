@@ -20,7 +20,7 @@ import React from "react";
 import styles from "styled-components";
 import { Link } from "react-router-dom";
 import { ExclamationTriangleFill } from "react-bootstrap-icons";
-import { routes } from "../../constants/routes";
+import routes from "../../constants/routes";
 
 const ErrorPage = () => {
   return (

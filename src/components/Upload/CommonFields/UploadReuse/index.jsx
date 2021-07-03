@@ -35,8 +35,13 @@ function UploadReuse({ reuse, handleChange }) {
 }
 
 UploadReuse.propTypes = {
-  reuse: PropTypes.object,
-  handleChange: PropTypes.func,
+  reuse: PropTypes.shape({
+    reuseUpload: PropTypes.number,
+    reuseGroup: PropTypes.string,
+    reuseMain: PropTypes.bool,
+    reuseEnhanced: PropTypes.bool,
+  }).isRequired,
+  handleChange: PropTypes.func.isRequired,
 };
 
 export default UploadReuse;

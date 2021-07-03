@@ -17,13 +17,13 @@
 */
 
 import React, { useState, useEffect } from "react";
+import { Spinner } from "react-bootstrap";
 import InputContainer from "../../../components/Widgets/Input";
 import Alert from "../../../components/Widgets/Alert";
 import Button from "../../../components/Widgets/Button";
 import CommonFields from "../../../components/Upload/CommonFields";
 import { createUploadFile, scheduleJobs } from "../../../services/upload";
-import { getFolders } from "../../../services/getFolder";
-import { Spinner } from "react-bootstrap";
+import getFolders from "../../../services/getFolder";
 
 const UploadFile = () => {
   const initialState = {
@@ -85,7 +85,6 @@ const UploadFile = () => {
           type: "success",
           text: "Successfully uploaded the files",
         });
-        scrollTo({ top: 0 });
         uploadId = res.message;
       })
       .then(() => {
@@ -97,7 +96,6 @@ const UploadFile = () => {
                   type: "success",
                   text: "Analysis for the file is scheduled.",
                 });
-                scrollTo({ top: 0 });
                 setUploadFileData(initialState);
                 setScanFileData(initialScanFileData);
               })
@@ -106,7 +104,6 @@ const UploadFile = () => {
                   type: "danger",
                   text: error.message,
                 });
-                scrollTo({ top: 0 });
               }),
           1200
         );
@@ -116,7 +113,6 @@ const UploadFile = () => {
           type: "danger",
           text: error.message,
         });
-        scrollTo({ top: 0 });
       })
       .finally(() => {
         setLoading(false);
@@ -142,7 +138,7 @@ const UploadFile = () => {
     }
   };
   const handleScanChange = (e) => {
-    const name = e.target.name;
+    const { name } = e.target;
     if (
       Object.keys(scanFileData.analysis).find((analysis) => analysis === name)
     ) {
@@ -224,17 +220,20 @@ const UploadFile = () => {
                 Select file to upload:
               </InputContainer>
               <div className="my-2">
-                <label htmlFor="upload" className="font-demi font-15">
+                <label
+                  htmlFor="upload-file-description"
+                  className="font-demi font-15"
+                >
                   (Optional) Enter a description of this file:
+                  <textarea
+                    name="uploadDescription"
+                    className="form-control"
+                    value={uploadFileData.uploadDescription}
+                    id="upload-file-description"
+                    rows="3"
+                    onChange={(e) => handleChange(e)}
+                  />
                 </label>
-                <textarea
-                  name="uploadDescription"
-                  className="form-control"
-                  value={uploadFileData.uploadDescription}
-                  id="upload-file-description"
-                  rows="3"
-                  onChange={(e) => handleChange(e)}
-                ></textarea>
               </div>
               <CommonFields
                 accessLevel={uploadFileData.accessLevel}

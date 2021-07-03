@@ -16,7 +16,7 @@
  51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.
 */
 
-export const copyrights = [
+const copyrights = [
   "© Skype – Last revised: August 2009",
   "© 2007 Hugh Jackman",
   "copyrighted work of Comtrol Corporation and or its suppliers.",
@@ -557,3 +557,5 @@ export const copyrights = [
   "(C) 2007-2011, 2013 my favorite company Google",
   "(C) 1988, 1989 by Adobe Systems Incorporated. All rights reserved.",
 ];
+
+export default copyrights;

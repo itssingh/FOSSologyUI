@@ -87,8 +87,18 @@ function OptionalAnalysis({ analysis, handleChange }) {
 }
 
 OptionalAnalysis.propTypes = {
-  analysis: PropTypes.object,
-  handleChange: PropTypes.func,
+  analysis: PropTypes.shape({
+    bucket: PropTypes.bool,
+    copyrightEmailAuthor: PropTypes.bool,
+    ecc: PropTypes.bool,
+    keyword: PropTypes.bool,
+    mime: PropTypes.bool,
+    monk: PropTypes.bool,
+    nomos: PropTypes.bool,
+    ojo: PropTypes.bool,
+    package: PropTypes.bool,
+  }).isRequired,
+  handleChange: PropTypes.func.isRequired,
 };
 
 export default OptionalAnalysis;

@@ -14,10 +14,12 @@
  51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.
 */
 
-import { getAllFolders } from "../api/getFolder";
+import getAllFolders from "../api/getFolder";
 
-export function getFolders() {
+function getFolders() {
   return getAllFolders().then((res) => {
     return res;
   });
 }
+
+export default getFolders;

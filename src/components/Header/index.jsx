@@ -17,7 +17,7 @@
 */
 
 import React, { useContext } from "react";
-import { useHistory } from "react-router-dom";
+import { useHistory, Link } from "react-router-dom";
 import {
   Navbar,
   Nav,
@@ -26,12 +26,12 @@ import {
   DropdownButton,
 } from "react-bootstrap";
 import { QuestionCircleFill, PersonCircle } from "react-bootstrap-icons";
-import { Link } from "react-router-dom";
-import Image from "../../components/Widgets/Image";
-import { routes } from "../../constants/routes";
+
+import Image from "../Widgets/Image";
+import routes from "../../constants/routes";
 import { logout, isAuth, getUserName } from "../../shared/authHelper";
 import logo from "../../assets/images/logo.svg";
-import { externalLinks } from "../../constants/externalLinks";
+import externalLinks from "../../constants/externalLinks";
 import { GlobalContext } from "../../context";
 
 const Header = () => {

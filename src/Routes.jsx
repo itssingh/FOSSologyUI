@@ -61,7 +61,7 @@ import UploadMove from "./pages/Organize/Uploads/Move";
 import ErrorPage from "./pages/ErrorPage";
 
 // Routes imports
-import { routes } from "./constants/routes";
+import routes from "./constants/routes";
 
 const Routes = () => {
   return (

@@ -5,8 +5,7 @@
     "jest": true
   },
   "extends": [
-    "eslint:recommended",
-    "plugin:react/recommended",
+    "airbnb",
     "plugin:prettier/recommended"
   ],
   "parserOptions": {
@@ -19,10 +18,13 @@
   "plugins": ["react"],
   "settings": {
     "react": {
-      "version": "latest"
+      "version": "detect"
     }
   },
   "rules": {
-    "react/no-unescaped-entities": ["error", {"forbid": [">", "}"]}]
+    "react/no-unescaped-entities": ["error", {"forbid": [">", "}"]}],
+    "no-plusplus": ["error", { "allowForLoopAfterthoughts": true }],
+    "react/require-default-props": 0,
+    "jsx-a11y/control-has-associated-label": 0
   }
 }

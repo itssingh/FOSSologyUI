@@ -45,13 +45,33 @@ function CommonFields({
 }
 
 CommonFields.propTypes = {
-  accessLevel: PropTypes.string,
-  ignoreScm: PropTypes.bool,
-  analysis: PropTypes.object,
-  decider: PropTypes.object,
-  reuse: PropTypes.object,
-  handleChange: PropTypes.func,
-  handleScanChange: PropTypes.func,
+  accessLevel: PropTypes.string.isRequired,
+  ignoreScm: PropTypes.bool.isRequired,
+  analysis: PropTypes.shape({
+    bucket: PropTypes.bool,
+    copyrightEmailAuthor: PropTypes.bool,
+    ecc: PropTypes.bool,
+    keyword: PropTypes.bool,
+    mime: PropTypes.bool,
+    monk: PropTypes.bool,
+    nomos: PropTypes.bool,
+    ojo: PropTypes.bool,
+    package: PropTypes.bool,
+  }).isRequired,
+  decider: PropTypes.shape({
+    nomosMonk: PropTypes.bool,
+    bulkReused: PropTypes.bool,
+    newScanner: PropTypes.bool,
+    ojoDecider: PropTypes.bool,
+  }).isRequired,
+  reuse: PropTypes.shape({
+    reuseUpload: PropTypes.number,
+    reuseGroup: PropTypes.string,
+    reuseMain: PropTypes.bool,
+    reuseEnhanced: PropTypes.bool,
+  }).isRequired,
+  handleChange: PropTypes.func.isRequired,
+  handleScanChange: PropTypes.func.isRequired,
 };
 
 export default CommonFields;

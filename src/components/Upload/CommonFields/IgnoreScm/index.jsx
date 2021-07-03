@@ -2,6 +2,7 @@ import React from "react";
 import PropTypes from "prop-types";
 import InputContainer from "../../../Widgets/Input";
 import Tooltip from "../../../Widgets/Tooltip";
+
 function IgnoreScm({ ignoreScm, handleChange }) {
   return (
     <div id="upload-ignore-files" className="mt-4">
@@ -14,11 +15,7 @@ function IgnoreScm({ ignoreScm, handleChange }) {
       >
         Ignore SCM files (Git, SVN, TFS) and files with particular
         Mimetype&nbsp;
-        <Tooltip
-          title={
-            "Configure mimetypes from Admin-Customize-Skip MimeTypes from scanning"
-          }
-        />
+        <Tooltip title="Configure mimetypes from Admin-Customize-Skip MimeTypes from scanning" />
       </InputContainer>
     </div>
   );
@@ -26,7 +23,7 @@ function IgnoreScm({ ignoreScm, handleChange }) {
 
 IgnoreScm.propTypes = {
   ignoreScm: PropTypes.bool.isRequired,
-  handleChange: PropTypes.func,
+  handleChange: PropTypes.func.isRequired,
 };
 
 export default IgnoreScm;

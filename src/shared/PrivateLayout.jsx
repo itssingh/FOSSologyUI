@@ -17,26 +17,27 @@
 */
 
 import React from "react";
-import { withRouter } from "react-router-dom";
+import { withRouter, Route, Redirect } from "react-router-dom";
 import PropTypes from "prop-types";
-import { Route, Redirect } from "react-router-dom";
+
 import { isAuth } from "./authHelper";
-import { routes } from "../constants/routes";
+import routes from "../constants/routes";
 import Header from "../components/Header";
 import Footer from "../components/Footer";
 
 const PrivateLayout = ({ component: Component, ...rest }) => (
   <Route
+    /* eslint-disable react/jsx-props-no-spreading */
     {...rest}
     render={(props) =>
       isAuth() ? (
-        <React.Fragment>
+        <>
           <div className="wrapper">
             <Header />
             <Component {...props} />
           </div>
           <Footer />
-        </React.Fragment>
+        </>
       ) : (
         <Redirect
           to={{
@@ -51,7 +52,9 @@ const PrivateLayout = ({ component: Component, ...rest }) => (
 
 PrivateLayout.propTypes = {
   component: PropTypes.oneOfType([PropTypes.element, PropTypes.func]),
-  location: PropTypes.object.isRequired,
+  location: PropTypes.shape({
+    pathname: PropTypes.string.isRequired,
+  }).isRequired,
 };
 
 export default withRouter(PrivateLayout);

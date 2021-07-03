@@ -16,11 +16,12 @@
  51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.
 */
 
-import { browseFiles } from "../api/browse";
+import browseFiles from "../api/browse";
 
-export function getBrowseData(browseData) {
+function getBrowseData(browseData) {
   return browseFiles(browseData).then((res) => {
-    console.log(res);
     return res;
   });
 }
+
+export default getBrowseData;

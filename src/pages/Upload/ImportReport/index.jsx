@@ -163,7 +163,7 @@ const ImportReport = () => {
                         name="existingDecisions"
                         id="upload-report-existing-decisions"
                         onChange={(e) => handleChange(e)}
-                        disabled={true}
+                        disabled
                       >
                         Also overwrite existing decisions
                       </InputContainer>

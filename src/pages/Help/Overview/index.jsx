@@ -20,7 +20,7 @@ import React from "react";
 import Image from "../../../components/Widgets/Image";
 import microscope from "../../../assets/images/microscope.svg";
 import fossologyFlow from "../../../assets/images/fossologyFlow.svg";
-import { externalLinks } from "../../../constants/externalLinks";
+import externalLinks from "../../../constants/externalLinks";
 
 const Overview = () => {
   return (

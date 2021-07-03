@@ -1,6 +1,6 @@
 /*
  Copyright (C) 2021 Aman Dwivedi (aman.dwivedi5@gmail.com), Shruti Agarwal (mail2shruti.ag@gmail.com)
- 
+
  SPDX-License-Identifier: GPL-2.0
 
  This program is free software; you can redistribute it and/or
@@ -16,30 +16,25 @@
  51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.
 */
 
-import React from "react";
-import { withRouter } from "react-router-dom";
-import PropTypes from "prop-types";
-import { Route } from "react-router-dom";
-import Header from "../components/Header";
-import Footer from "../components/Footer";
+import React, { useContext } from "react";
+import { ThemeProvider } from "styled-components";
+import { GlobalContext, GlobalProvider } from "./context";
+import { lightTheme, darkTheme } from "./styles/theme";
+import Routes from "./Routes";
+import "bootstrap/dist/css/bootstrap.min.css";
+import GlobalStyles from "./styles/globalStyle";
+import "./styles/global.css";
 
-const PublicLayout = ({ component: Component, ...rest }) => (
-  <Route
-    {...rest}
-    render={(props) => (
-      <React.Fragment>
-        <div className="wrapper">
-          <Header />
-          <Component {...props} />
-        </div>
-        <Footer />
-      </React.Fragment>
-    )}
-  />
-);
+function App() {
+  const { theme } = useContext(GlobalContext);
+  return (
+    <GlobalProvider>
+      <ThemeProvider theme={theme === "light" ? lightTheme : darkTheme}>
+        <GlobalStyles />
+        <Routes />
+      </ThemeProvider>
+    </GlobalProvider>
+  );
+}
 
-PublicLayout.propTypes = {
-  component: PropTypes.oneOfType([PropTypes.element, PropTypes.func]),
-};
-
-export default withRouter(PublicLayout);
+export default App;

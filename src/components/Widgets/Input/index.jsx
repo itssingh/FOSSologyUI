@@ -49,7 +49,8 @@ const InputContainer = ({
         </label>
       </div>
     );
-  } else if (type === "select") {
+  }
+  if (type === "select") {
     return (
       <div className="my-0 py-0">
         {children && (
@@ -76,7 +77,7 @@ const InputContainer = ({
               </option>
             ))
           ) : (
-            <option className="font-demi" disabled={true}>
+            <option className="font-demi" disabled>
               No Data Found
             </option>
           )}
@@ -116,7 +117,14 @@ InputContainer.propTypes = {
   checked: PropTypes.bool,
   disabled: PropTypes.bool,
   children: PropTypes.node,
-  options: PropTypes.array,
+  options: PropTypes.arrayOf(
+    PropTypes.shape({
+      id: PropTypes.number,
+      name: PropTypes.string,
+      description: PropTypes.string,
+      parent: PropTypes.number,
+    })
+  ),
   multiple: PropTypes.string,
   property: PropTypes.string,
 };

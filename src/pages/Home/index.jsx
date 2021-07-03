@@ -19,18 +19,16 @@ import React, { useState } from "react";
 // External library imports
 import { useHistory } from "react-router-dom";
 import { Form, Row, Col, Spinner } from "react-bootstrap";
+import styled from "styled-components";
 
 // Custom component imports
-import { fetchToken } from "../../services/auth";
-import { getUserSelf } from "../../services/users";
-import { routes } from "../../constants/routes";
+import fetchToken from "../../services/auth";
+import getUserSelf from "../../services/users";
+import routes from "../../constants/routes";
 import { isAuth } from "../../shared/authHelper";
 import Button from "../../components/Widgets/Button";
 import Alert from "../../components/Widgets/Alert";
 import Features from "./Features";
-
-// CSS imports
-import { LoginForm } from "./style";
 
 const Home = () => {
   const [values, setValues] = useState({
@@ -61,7 +59,6 @@ const Home = () => {
           .catch((error) => {
             throw error;
           });
-        history.push(routes.browse);
       })
       .catch((err) => {
         setLoading(false);
@@ -71,7 +68,7 @@ const Home = () => {
   };
 
   return (
-    <React.Fragment>
+    <>
       {showError && (
         <>
           <Alert
@@ -174,8 +171,21 @@ const Home = () => {
         </div>
         <Features />
       </div>
-    </React.Fragment>
+    </>
   );
 };
+
+const LoginForm = styled.div`
+  border: 1px black dashed;
+  min-width: 35vw;
+  padding: 1rem;
+  @media (max-width: 768px) {
+    float: none;
+    margin: 1rem;
+  }
+  @media (min-width: 768px) {
+    float: right;
+  }
+`;
 
 export default Home;

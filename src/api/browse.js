@@ -16,18 +16,12 @@
  51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.
 */
 
-import sendRequest from "./sendRequest";
-import { endpoints } from "../constants/endpoints";
-import { getToken } from "../shared/helper";
 import PropTypes from "prop-types";
+import sendRequest from "./sendRequest";
+import endpoints from "../constants/endpoints";
+import { getToken } from "../shared/helper";
 
-export const browseFiles = async ({
-  folderId,
-  page,
-  limit,
-  groupName,
-  recursive,
-}) => {
+const browseFiles = async ({ folderId, page, limit, groupName, recursive }) => {
   const url = endpoints.browse.get(folderId, recursive);
   const token = await getToken();
   return sendRequest({
@@ -50,3 +44,5 @@ browseFiles.propTypes = {
   folderId: PropTypes.number,
   recursive: PropTypes.bool,
 };
+
+export default browseFiles;

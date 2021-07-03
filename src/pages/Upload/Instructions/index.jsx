@@ -18,8 +18,8 @@
 
 import React from "react";
 import { Link } from "react-router-dom";
-import { routes } from "../../../constants/routes";
-import { externalLinks } from "../../../constants/externalLinks";
+import routes from "../../../constants/routes";
+import externalLinks from "../../../constants/externalLinks";
 
 const Instructions = () => {
   return (

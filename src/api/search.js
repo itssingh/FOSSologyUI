@@ -16,12 +16,12 @@
  51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.
 */
 
-import sendRequest from "./sendRequest";
-import { endpoints } from "../constants/endpoints";
-import { getToken } from "../shared/helper";
 import PropTypes from "prop-types";
+import sendRequest from "./sendRequest";
+import endpoints from "../constants/endpoints";
+import { getToken } from "../shared/helper";
 
-export const searchFiles = async ({
+const searchFiles = async ({
   groupName,
   searchType,
   uploadId,
@@ -64,3 +64,5 @@ searchFiles.propTypes = {
   license: PropTypes.string,
   copyright: PropTypes.string,
 };
+
+export default searchFiles;

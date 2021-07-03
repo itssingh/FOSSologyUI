@@ -18,7 +18,7 @@
 
 const apiUrl = "http://localhost/repo/api/v1";
 
-export const endpoints = {
+const endpoints = {
   jobs: {
     details: (jobId) => `${apiUrl}/jobs/${jobId}`,
   },
@@ -50,3 +50,5 @@ export const endpoints = {
       `${apiUrl}/uploads?folderId=${folderId}&recursive=${recursive}`,
   },
 };
+
+export default endpoints;

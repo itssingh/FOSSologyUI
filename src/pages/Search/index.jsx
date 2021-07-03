@@ -18,7 +18,7 @@
 
 import React, { useState } from "react";
 import { Spinner } from "react-bootstrap";
-import { search } from "../../services/search";
+import search from "../../services/search";
 import InputContainer from "../../components/Widgets/Input";
 import Alert from "../../components/Widgets/Alert";
 import Button from "../../components/Widgets/Button";
@@ -211,7 +211,7 @@ const Search = () => {
                 </h3>
                 {searchResult.map(
                   ({ uploadName, folderName, fileName }, index) => (
-                    <div key={index} className="box p-3 mt-2">
+                    <div key={folderName} className="box p-3 mt-2">
                       <div className="font-demi">
                         {index + 1}. Folder: {folderName}
                       </div>

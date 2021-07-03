@@ -14,12 +14,14 @@
  51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.
 */
 
-import { getUserSelfApi } from "../api/users";
+import getUserSelfApi from "../api/users";
 import { setLocalStorage } from "../shared/storageHelper";
 
-export function getUserSelf() {
+function getUserSelf() {
   return getUserSelfApi().then((res) => {
     setLocalStorage("user", res);
     return res;
   });
 }
+
+export default getUserSelf;

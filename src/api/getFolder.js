@@ -15,11 +15,11 @@
  51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.
 */
 
-import { endpoints } from "../constants/endpoints";
+import endpoints from "../constants/endpoints";
 import sendRequest from "./sendRequest";
 import { getToken } from "../shared/authHelper";
 
-export const getAllFolders = () => {
+const getAllFolders = () => {
   const url = endpoints.folders.getAll();
   return sendRequest({
     url,
@@ -30,3 +30,5 @@ export const getAllFolders = () => {
     },
   });
 };
+
+export default getAllFolders;

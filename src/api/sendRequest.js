@@ -17,6 +17,7 @@
 */
 
 import { stringify } from "query-string";
+
 const sendRequest = ({
   url,
   method,
@@ -40,34 +41,40 @@ const sendRequest = ({
     mergedHeaders = {};
   }
   const options = {
-    method: method,
+    method,
     headers: mergedHeaders,
-    body: body ? (isMultipart ? body : JSON.stringify(body)) : null,
+    body,
   };
+  let URL = url;
+  if (body) {
+    if (isMultipart) {
+      options.body = body;
+    } else {
+      options.body = JSON.stringify(body);
+    }
+  } else {
+    options.body = null;
+  }
   if (credentials) {
     options.credentials = credentials;
   }
   if (queryParams) {
-    url = `${url}?${stringify(queryParams)}`;
+    URL = `${url}?${stringify(queryParams)}`;
   }
-  return fetch(url, options).then((res) => {
+  return fetch(URL, options).then((res) => {
     if (res.ok) {
-      for (var pair of res.headers.entries()) {
-        if (pair[0] === "x-total-pages") {
-          console.log(pair[1]);
-        }
-      }
       return res.json();
-    } else {
-      return res.json().then(function (json) {
-        return Promise.reject({
+    }
+    return res.json().then((json) => {
+      return Promise.reject(
+        new Error({
           status: res.status,
           ok: false,
           message: json.message,
           body: json,
-        });
-      });
-    }
+        })
+      );
+    });
   });
 };
 

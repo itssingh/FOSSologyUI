@@ -17,10 +17,10 @@
 */
 
 import sendRequest from "./sendRequest";
-import { endpoints } from "../constants/endpoints";
+import endpoints from "../constants/endpoints";
 import { getToken } from "../shared/authHelper";
 
-export const getUserSelfApi = async () => {
+const getUserSelfApi = async () => {
   const url = endpoints.users.self();
   return sendRequest({
     url,
@@ -31,3 +31,5 @@ export const getUserSelfApi = async () => {
     },
   });
 };
+
+export default getUserSelfApi;

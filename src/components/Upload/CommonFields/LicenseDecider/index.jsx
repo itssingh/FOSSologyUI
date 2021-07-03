@@ -53,8 +53,13 @@ function LicenseDecider({ decider, handleChange }) {
 }
 
 LicenseDecider.propTypes = {
-  decider: PropTypes.object,
-  handleChange: PropTypes.func,
+  decider: PropTypes.shape({
+    nomosMonk: PropTypes.bool,
+    bulkReused: PropTypes.bool,
+    newScanner: PropTypes.bool,
+    ojoDecider: PropTypes.bool,
+  }).isRequired,
+  handleChange: PropTypes.func.isRequired,
 };
 
 export default LicenseDecider;
